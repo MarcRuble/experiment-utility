@@ -1,3 +1,5 @@
+package com.marcruble.common;
+
 import java.util.ArrayList;
 import java.util.List;
 

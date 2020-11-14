@@ -1,3 +1,5 @@
+package com.marcruble.common;
+
 /**
  * Represents a condition in the experiment identified by a string
  * of characters.

@@ -1,4 +1,8 @@
+package com.marcruble;
+
 import java.io.File;
+import com.marcruble.common.*;
+import com.marcruble.reader.*;
 
 public class Main {
 

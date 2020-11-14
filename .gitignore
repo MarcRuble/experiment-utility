@@ -62,3 +62,6 @@ out/production/experiment-utility/resources/Task1/Condition1/Props2/1_1_2_Target
 out/production/experiment-utility/resources/Task1/Condition1/Props1/1_1_1_Targets.txt
 out/production/experiment-utility/resources/Task1/Condition1/1_1_Props.txt
 out/production/experiment-utility/resources/Task1/1_Conditions.txt
+.idea/workspace.xml
+.idea/uiDesigner.xml
+*.kotlin_module
