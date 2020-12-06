@@ -1,0 +1,9 @@
+# The table below (not including this header) is an example
+# for output of the Random Square Generator
+# with 5 rows, columns and possible conditions.
+
+1 4 4 5 1 
+1 1 4 5 4 
+3 3 2 3 2 
+3 2 1 4 5 
+1 4 2 4 4
