@@ -25,6 +25,7 @@ experiment-utility.iml
 .idea/vcs.xml
 .idea/modules.xml
 .idea/misc.xml
+results/*
 out/production/experiment-utility/resources/Task2/Condition7/2_7_Targets.txt
 out/production/experiment-utility/resources/Task2/Condition6/2_6_Targets.txt
 out/production/experiment-utility/resources/Task2/Condition5/2_5_Targets.txt

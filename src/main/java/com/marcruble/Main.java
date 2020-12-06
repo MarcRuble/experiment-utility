@@ -35,12 +35,12 @@ public class Main {
                 if (file.getName().equals("Task1"))
                     experiment.addTask(
                             ExperimentReader.readTask(file, 14, " ", true, "-",
-                                    args -> mergeTask1(args))
+                                    args -> mergeUnderscore(args))
                     );
                 else if (file.getName().equals("Task2"))
                     experiment.addTask(
                             ExperimentReader.readTask(file, 14, " ", false, "/",
-                                    args -> mergeTask2(args))
+                                    args -> mergeUnderscore(args))
                     );
             }
         }
@@ -48,13 +48,8 @@ public class Main {
         return experiment;
     }
 
-    private static String mergeTask1(String[] args)
+    private static String mergeUnderscore(String[] args)
     {
-        return args[0] + "_" + args[1] + "_" + args[2];
-    }
-
-    private static String mergeTask2(String[] args)
-    {
-        return args[0] + "_" + args[1];
+        return String.join("_", args);
     }
 }
