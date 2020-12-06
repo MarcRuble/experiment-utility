@@ -5,7 +5,7 @@ Contains utility classes for generating description files for experiments and re
 
 ## Generators
 The package `generators` currently contains two kinds of file generators which are executed without arguments. The parameters for file generation are specified in a command-line dialogue.\
-Please see folder `exampleResults` for an example of generated output files.
+Please see folder `examples/exampleResults` for an example of generated output files.
 
 ### Balanced Latin Square Generator
 This generator takes two arguments:
@@ -14,6 +14,7 @@ This generator takes two arguments:
 
 The result will be a balanced latin square, as defined here:
 > Martyn Shuttleworth (May 8, 2009). Counterbalanced Measures Design. Retrieved Dec 05, 2020 from Explorable.com: https://explorable.com/counterbalanced-measures-design
+
 For odd numbers of conditions, the mirrored extension is automatically applied.
 
 ### Random Square Generator
@@ -44,7 +45,7 @@ For example lets assume, we want to conduct an experiment to compare 3 kinds of 
 This can easily be described with the above model as an `Experiment` with only one `Task` where each partipant has a different line of `Conditions`.
 
 ### How to describe my experiment?
-Sticking to our example from above, we now want to write the description files for our VR experiment. Therefore please have a look into the folder `exampleDescription` which describes exactly this case. As we can see, an experiment is described as a folder of files:
+Sticking to our example from above, we now want to write the description files for our VR experiment. Therefore please have a look into the folder `examples/exampleDescription` which describes exactly this case. As we can see, an experiment is described as a folder of files:
 1. There is always a `.txt` file describing the order of  conditions (identifiers in row) for each participant (each row).
 2. Then there are a number of subdirectories which names end with the identifier in the `.txt` file. E.g. folder `Controller1` contains the part of the experiment for `controller = 1`.
 
