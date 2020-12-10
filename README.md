@@ -35,6 +35,8 @@ The classes include:
 * `Task`: Table mapping each subject ID to an ordered list of `Condition` objects.
 * `Condition`: Represents a single experimental condition/trial/subtask which can be identified with a `string`.
 
+![Model Overview](docs/experiment-model.svg)
+
 ### Should I use the reader?
 Check if your experimental procedure can be described with the hierarchy described just above in the Model. In genneral, user studies with a range of experimental conditions, possibly multiple independent variables with hierarchical order, can be described in this fashion.\
 For example lets assume, we want to conduct an experiment to compare 3 kinds of VR controllers (`controller = {1, 2, 3}`) in 2 positions (`pose = {sit, stand}`). So our participants perform tasks with each of the controllers and within these 3 blocks, also the position is varied:
