@@ -38,8 +38,8 @@ The classes include:
 ![Model Overview](docs/experiment-model.svg)
 
 ### Should I use the reader?
-Check if your experimental procedure can be described with the hierarchy described just above in the Model. In genneral, user studies with a range of experimental conditions, possibly multiple independent variables with hierarchical order, can be described in this fashion.\
-For example lets assume, we want to conduct an experiment to compare 3 kinds of VR controllers (`controller = {1, 2, 3}`) in 2 positions (`pose = {sit, stand}`). So our participants perform tasks with each of the controllers and within these 3 blocks, also the position is varied:
+Check if your experimental procedure can be described with the hierarchy described just above in the Model. In general, user studies with a range of experimental conditions, possibly multiple independent variables with hierarchical order, can be described in this fashion.\
+For example lets assume, we want to conduct an experiment to compare 3 kinds of VR controllers (`controller = {1, 2, 3}`) in 2 user poses (`pose = {sit, stand}`). So our participants perform tasks with each of the controllers and within these 3 blocks, also the poses are varied:
 * `0` does `1-sit` then `1-stand` then `2-stand` and so on...
 * `1` does `2-sit` then `2-stand` then `3-stand` and so on...
 * ...
@@ -55,5 +55,11 @@ For more complex experiments, this structure can be nested arbitrarily. See `src
 
 ### How to use the reader?
 When a description of the experiment in this format is at hand, one can use the `ExperimentReader.readTask()` method to parse the experiment in the above described model classes. See `Main.java` for an example of this.\
-The parameter `collapse` indicates if the specified conditions in the lowest level of file directories should be collapsed to a single condition. Then a line in the `.txt` file with `1 2 3` would be interpreted as one condition `1-2-3` instead of 3 subsequent ones (where `-` can be replaced by other symbols with the `connector` parameter).\
-Still there is one more thing that we need to specify in order to parse our experiment, the `merger` function. Because we have defined the orders of conditions of our 2 independent variables in separate files, we need to merge them into one. E.g. we could define a function which takes as input an array of `string` and simply joins them into a single `string` with `_` as separator. This way we obtain conditions of form `1_sit` or `3_stand` which are easy to work with.
+Important parameters are:
+* `collapse`: indicates if the specified conditions in the lowest level of file directories should be collapsed to a single condition. Then a line in the `.txt` file with `1 2 3` would be interpreted as one condition `1-2-3` instead of 3 subsequent ones. This is useful if in our example from above, the poses would always be done subsequently without a pause and the whole thing counted as one trial.
+* `connector`: if `collapse` is true, then this parameter is the `string` used to join the condition (e.g. `-` to obtain `1-2-3`).
+* `merger`: a function combining a range of `strings` to a single `string`. Because we have defined the orders of conditions of our 2 independent variables in separate files, we need to merge them into one. E.g. we could define a function which takes as input an array of `string` and simply joins them into a single `string` with `_` as separator. This way we obtain conditions of form `1_sit` or `3_stand` which are easy to work with.
+
+### What now?
+Use the obtained model of Java objects in any way you would like.\
+In the future, I might extend this project with a simple GUI to execute the experiment.
