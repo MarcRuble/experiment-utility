@@ -19,8 +19,10 @@ public class RandomSquareGenerator {
      * @param columns number of columns
      * @param conditions number of conditions
      * @param fileName name of file
+     * @param avoidRepetition if repetitions should be avoided within the same line
      */
-    public static void Generate(int rows, int columns, int conditions, String fileName, Random random)
+    public static void Generate(int rows, int columns, int conditions, String fileName,
+                                Random random, boolean avoidRepetition)
     {
         // first generate a 2D array, then transform to string
         int[][] square = new int[rows][columns];
@@ -31,7 +33,11 @@ public class RandomSquareGenerator {
             for (int j = 0; j < columns; j++)
             {
                 // generate random number
-                square[i][j] = random.nextInt(conditions) + 1;
+                do
+                {
+                    square[i][j] = random.nextInt(conditions) + 1;
+                }
+                while (avoidRepetition && checkRepetitionInLine(square, i, j));
             }
         }
 
@@ -61,6 +67,24 @@ public class RandomSquareGenerator {
         }
     }
 
+    /**
+     * Returns if a certain row in the square already contains the number
+     * written in (row, col).
+     * @param square of numbers
+     * @param row to search in
+     * @param col where current value is
+     * @return if values (row, 0...col-1) contain the value of (row, col)
+     */
+    private static boolean checkRepetitionInLine(int[][] square, int row, int col)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (square[row][j] == square[row][col])
+                return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
@@ -68,6 +92,8 @@ public class RandomSquareGenerator {
         // read parameters
         System.out.println("Enter seed for random numbers: ");
         int seed = scanner.nextInt();
+        System.out.println("Avoid repetitions in same line? (yes/no) ");
+        String avoidRep = scanner.next();
         System.out.print("Enter number of rows: ");
         int rows = scanner.nextInt();
         scanner.nextLine();
@@ -91,7 +117,8 @@ public class RandomSquareGenerator {
         for (int i = 0; i < files; i++)
         {
             String fileName = startName + (i+1);
-            Generate(rows, columns, conditions, fileName, random);
+            Generate(rows, columns, conditions, fileName,
+                    random, avoidRep.equals("yes") ? true : false);
         }
     }
 }
